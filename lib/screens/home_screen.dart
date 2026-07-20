@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -232,17 +231,19 @@ class _HomeScreenState extends State<HomeScreen> {
   );
 
   Widget _content() {
-    if (_state == ScreenState.loading)
+    if (_state == ScreenState.loading) {
       return const _LoadingCard(
         key: ValueKey('loading'),
         label: 'Подождите…\nИщем аудио и обложку',
       );
-    if (_state == ScreenState.saving)
+    }
+    if (_state == ScreenState.saving) {
       return const _LoadingCard(
         key: ValueKey('saving'),
         label: 'Сохраняем…\nДобавляем обложку и теги',
       );
-    if (_state == ScreenState.done)
+    }
+    if (_state == ScreenState.done) {
       return _DoneCard(
         key: const ValueKey('done'),
         folder: _folder,
@@ -253,7 +254,8 @@ class _HomeScreenState extends State<HomeScreen> {
           _url.clear();
         }),
       );
-    if (_track != null)
+    }
+    if (_track != null) {
       return _EditorCard(
         key: const ValueKey('editor'),
         track: _track!,
@@ -265,6 +267,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onCover: _pickCover,
         onSave: _save,
       );
+    }
     return const SizedBox.shrink(key: ValueKey('empty'));
   }
 }
