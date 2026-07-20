@@ -190,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       _state == ScreenState.idle ? _load() : null,
                   decoration: const InputDecoration(
                     labelText: 'Ссылка Suno',
-                    hintText: 'https://suno.com/song/...',
+                    hintText: 'https://suno.com/s/...',
                     prefixIcon: Icon(Icons.link_rounded),
                   ),
                 ),

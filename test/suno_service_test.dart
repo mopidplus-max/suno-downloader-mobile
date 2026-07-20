@@ -5,6 +5,8 @@ void main() {
   group('SunoService', () {
     test('validates Suno song URLs', () {
       expect(SunoService.isValidUrl('https://suno.com/song/abc'), isTrue);
+      expect(SunoService.isValidUrl('https://suno.com/s/abc'), isTrue);
+      expect(SunoService.isValidUrl('https://example.com/s/abc'), isFalse);
       expect(SunoService.isValidUrl('https://example.com/song/abc'), isFalse);
     });
 

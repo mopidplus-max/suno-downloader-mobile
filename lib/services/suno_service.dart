@@ -18,12 +18,12 @@ class SunoService {
     final uri = Uri.tryParse(value.trim());
     return uri != null &&
         (uri.host == 'suno.com' || uri.host.endsWith('.suno.com')) &&
-        uri.pathSegments.contains('song');
+        (uri.pathSegments.contains('s') || uri.pathSegments.contains('song'));
   }
 
   Future<TrackMetadata> fetchTrack(String url) async {
     if (!isValidUrl(url)) {
-      throw const SunoException('Вставьте корректную ссылку suno.com/song/…');
+      throw const SunoException('Вставьте корректную ссылку suno.com/s/…');
     }
     final response = await _client.get(
       Uri.parse(url.trim()),
