@@ -28,4 +28,5 @@ android/local.properties
 android/key.properties
 *.jks
 *.keystore
+signing-handoff/
 .env
