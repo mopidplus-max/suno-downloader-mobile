@@ -22,13 +22,13 @@ class TrackMetadata {
   Uint8List? coverBytes;
 
   TrackMetadata copyWith({Uint8List? coverBytes}) => TrackMetadata(
-        audioUrl: audioUrl,
-        coverUrl: coverUrl,
-        title: title,
-        artist: artist,
-        album: album,
-        year: year,
-        fileName: fileName,
-        coverBytes: coverBytes ?? this.coverBytes,
-      );
+    audioUrl: audioUrl,
+    coverUrl: coverUrl,
+    title: title,
+    artist: artist,
+    album: album,
+    year: year,
+    fileName: fileName,
+    coverBytes: coverBytes ?? this.coverBytes,
+  );
 }

@@ -14,7 +14,9 @@ class Id3Writer {
     ];
     final header = <int>[
       ...ascii.encode('ID3'),
-      3, 0, 0,
+      3,
+      0,
+      0,
       ..._syncSafe(frames.length),
     ];
     return Uint8List.fromList([...header, ...frames, ...audio]);
@@ -39,19 +41,20 @@ class Id3Writer {
   }
 
   static List<int> _frame(String id, List<int> data) => [
-        ...ascii.encode(id),
-        (data.length >> 24) & 0xff,
-        (data.length >> 16) & 0xff,
-        (data.length >> 8) & 0xff,
-        data.length & 0xff,
-        0, 0,
-        ...data,
-      ];
+    ...ascii.encode(id),
+    (data.length >> 24) & 0xff,
+    (data.length >> 16) & 0xff,
+    (data.length >> 8) & 0xff,
+    data.length & 0xff,
+    0,
+    0,
+    ...data,
+  ];
 
   static List<int> _syncSafe(int value) => [
-        (value >> 21) & 0x7f,
-        (value >> 14) & 0x7f,
-        (value >> 7) & 0x7f,
-        value & 0x7f,
-      ];
+    (value >> 21) & 0x7f,
+    (value >> 14) & 0x7f,
+    (value >> 7) & 0x7f,
+    value & 0x7f,
+  ];
 }

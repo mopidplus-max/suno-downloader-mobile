@@ -58,20 +58,23 @@ class SunoService {
       }
     }
     final clip = candidates.cast<Map<String, dynamic>?>().firstWhere(
-          (item) => _string(item?['audio_url']).isNotEmpty,
-          orElse: () => null,
-        );
+      (item) => _string(item?['audio_url']).isNotEmpty,
+      orElse: () => null,
+    );
     if (clip == null) {
-      throw const SunoException('Не удалось найти аудио. Возможно, Suno изменил страницу.');
+      throw const SunoException(
+        'Не удалось найти аудио. Возможно, Suno изменил страницу.',
+      );
     }
     final metadata = clip['metadata'] is Map
         ? Map<String, dynamic>.from(clip['metadata'] as Map)
         : <String, dynamic>{};
     final title = _first([clip['title'], metadata['title']], 'Песня');
-    final artist = _first(
-      [clip['display_name'], clip['handle'], metadata['artist']],
-      'Автор',
-    );
+    final artist = _first([
+      clip['display_name'],
+      clip['handle'],
+      metadata['artist'],
+    ], 'Автор');
     final created = DateTime.tryParse(_string(clip['created_at']));
     return TrackMetadata(
       audioUrl: _string(clip['audio_url']),
@@ -124,8 +127,9 @@ class SunoService {
   }
 
   static String _string(Object? value) => value?.toString().trim() ?? '';
-  static String _first(List<Object?> values, String fallback) =>
-      values.map(_string).firstWhere((value) => value.isNotEmpty, orElse: () => fallback);
+  static String _first(List<Object?> values, String fallback) => values
+      .map(_string)
+      .firstWhere((value) => value.isNotEmpty, orElse: () => fallback);
   static String? _nullableFirst(List<Object?> values) {
     final result = _first(values, '');
     return result.isEmpty ? null : result;

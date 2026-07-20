@@ -10,7 +10,9 @@ class StorageService {
   static const _folderNameKey = 'folder_name';
 
   Future<String?> chooseFolder() async {
-    final result = await _channel.invokeMapMethod<String, dynamic>('chooseFolder');
+    final result = await _channel.invokeMapMethod<String, dynamic>(
+      'chooseFolder',
+    );
     final name = result?['name'] as String?;
     if (name != null) {
       final prefs = await SharedPreferences.getInstance();
@@ -29,7 +31,8 @@ class StorageService {
       'fileName': fileName,
       'bytes': bytes,
     });
-    if (result == null) throw const FileSystemException('Не удалось сохранить файл');
+    if (result == null)
+      throw const FileSystemException('Не удалось сохранить файл');
     return result;
   }
 

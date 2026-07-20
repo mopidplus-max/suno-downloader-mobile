@@ -8,31 +8,31 @@ class AppTheme {
   static const muted = Color(0xFF737A75);
 
   static ThemeData get light => ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.light,
-        colorScheme: const ColorScheme.light(
-          primary: ink,
-          onPrimary: paper,
-          secondary: lime,
-          onSecondary: ink,
-          surface: card,
-          onSurface: ink,
-          error: Color(0xFFB3261E),
-        ),
-        scaffoldBackgroundColor: paper,
-        fontFamily: 'Roboto',
-        inputDecorationTheme: InputDecorationTheme(
-          filled: true,
-          fillColor: card,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(18),
-            borderSide: BorderSide.none,
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(18),
-            borderSide: const BorderSide(color: Color(0xFFE0DED5)),
-          ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-        ),
-      );
+    useMaterial3: true,
+    brightness: Brightness.light,
+    colorScheme: const ColorScheme.light(
+      primary: ink,
+      onPrimary: paper,
+      secondary: lime,
+      onSecondary: ink,
+      surface: card,
+      onSurface: ink,
+      error: Color(0xFFB3261E),
+    ),
+    scaffoldBackgroundColor: paper,
+    fontFamily: 'Roboto',
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: card,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(18),
+        borderSide: BorderSide.none,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(18),
+        borderSide: const BorderSide(color: Color(0xFFE0DED5)),
+      ),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+    ),
+  );
 }

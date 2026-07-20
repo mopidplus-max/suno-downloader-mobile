@@ -9,7 +9,8 @@ void main() {
     });
 
     test('extracts a balanced clip object and metadata', () {
-      const html = '''<script>self.__next_f.push([1,"{\\"clip\\":{\\"audio_url\\":\\"https://cdn.test/song.mp3\\",\\"image_large_url\\":\\"https://cdn.test/cover.jpeg\\",\\"title\\":\\"Песня\\",\\"display_name\\":\\"Автор\\",\\"created_at\\":\\"2025-03-10T12:00:00Z\\",\\"metadata\\":{\\"album\\":\\"Альбом\\"}}}"])</script>''';
+      const html =
+          '''<script>self.__next_f.push([1,"{\\"clip\\":{\\"audio_url\\":\\"https://cdn.test/song.mp3\\",\\"image_large_url\\":\\"https://cdn.test/cover.jpeg\\",\\"title\\":\\"Песня\\",\\"display_name\\":\\"Автор\\",\\"created_at\\":\\"2025-03-10T12:00:00Z\\",\\"metadata\\":{\\"album\\":\\"Альбом\\"}}}"])</script>''';
       final track = SunoService().parseHtml(html);
       expect(track.title, 'Песня');
       expect(track.artist, 'Автор');
